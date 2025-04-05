@@ -14,7 +14,7 @@ public class BaseTest extends Driver {
     @BeforeTest
     public void setUp() {
         // Initialize the WebDriver
-        browserIntialization("chrome");
+        browserIntialization(ReadProperties.getProperty("browser"));
         // Set the driver instance
         setDriver(getDriver());
     }
