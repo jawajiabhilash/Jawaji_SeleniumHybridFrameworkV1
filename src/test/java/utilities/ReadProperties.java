@@ -62,7 +62,7 @@ public class ReadProperties {
             exception.printStackTrace();
         }
 
-        // Step 5: Return the Properties object
+        // Step 5: Return the Properties Object
         return properties;
     }
 }

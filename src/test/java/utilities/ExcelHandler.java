@@ -140,7 +140,7 @@ public class ExcelHandler {
         // Step 5: Read data from a specific row in the Excel sheet
         HashMap<String, String> getData = readDataFromExcel("TestSheet", 1);
 
-        // Step 6: Print the retrieved data
+        // Step 6: Print the retrieved Data
         System.out.println("Read Data: " + getData.get("Name") + ", " + getData.get("Age") + ", " + getData.get("City"));
     }
 }
