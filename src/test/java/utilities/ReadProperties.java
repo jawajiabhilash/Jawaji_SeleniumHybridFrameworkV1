@@ -13,7 +13,7 @@ import java.util.Properties;
 public class ReadProperties {
 
     // Path to the configuration file
-    static String PATH = "src/test/resources/config.properties";
+    static String properyPath = "src/test/resources/config.properties";
 
     /**
      * This method takes a key as input and returns the corresponding value from the properties file.
@@ -53,7 +53,7 @@ public class ReadProperties {
         // Step 1: Create a new Properties object
         Properties properties = new Properties();
 
-        try (InputStream inputStream = new FileInputStream(PATH)) {
+        try (InputStream inputStream = new FileInputStream(properyPath)) {
             // Step 2: Open the configuration file using FileInputStream
             // Step 3: Load the properties from the file
             properties.load(inputStream);
