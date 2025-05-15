@@ -11,42 +11,58 @@ import java.util.Properties;
  * The {@link #loadProperties()} method loads the properties from the file and returns a Properties object.
  */
 public class ReadProperties {
-    // This class is used to read properties from a configuration file
-    // It uses the Properties class to load the properties from the file
-    // The getProperty() method returns the value of a property given its key
-    // The loadProperties() method loads the properties from the file and returns a Properties object
-    // The getProperty() method takes a key as input and returns the corresponding value from the properties file
+
+    // Path to the configuration file
+    static String PATH = "src/test/resources/config.properties";
 
     /**
      * This method takes a key as input and returns the corresponding value from the properties file.
-     * Step 1: Call the loadProperties() method to load the properties from the file
-     * Step 2: Call the getProperty() method of the Properties class to get the value of the property
-     * Step 3: Return the value of the property
-     * @param key The key of the property to retrieve
-     * @return The value of the property
+     *
+     * Steps:
+     * 1. Call the `loadProperties()` method to load the properties from the file.
+     * 2. Use the `getProperty()` method of the `Properties` class to retrieve the value of the property.
+     * 3. Return the value of the property.
+     *
+     * @param key The key of the property to retrieve.
+     * @return The value of the property.
      */
     public static String getProperty(String key) {
-        return loadProperties().getProperty(key);
-    }
+        // Step 1: Load the properties from the file
+        Properties properties = loadProperties();
 
-    static String PATH="src/test/resources/config.properties";
+        // Step 2: Retrieve the value of the property using the key
+        String value = properties.getProperty(key);
+
+        // Step 3: Return the value of the property
+        return value;
+    }
 
     /**
      * This method loads the properties from the configuration file and returns a Properties object.
-     * Step 1: Create a new Properties object
-     * Step 2: Create a new FileInputStream object to read the configuration file
-     * Step 3: Call the load() method of the Properties class to load the properties from the file
-     * Step 4: Catch any IOExceptions that may occur and print the stack trace
-     * Step 5: Return the Properties object
-     * @return The Properties object
+     *
+     * Steps:
+     * 1. Create a new `Properties` object to store the properties.
+     * 2. Create a `FileInputStream` object to read the configuration file.
+     * 3. Use the `load()` method of the `Properties` class to load the properties from the file.
+     * 4. Handle any exceptions that may occur during file reading.
+     * 5. Return the `Properties` object containing the loaded properties.
+     *
+     * @return The `Properties` object containing the loaded properties.
      */
     private static Properties loadProperties() {
+        // Step 1: Create a new Properties object
         Properties properties = new Properties();
+
         try (InputStream inputStream = new FileInputStream(PATH)) {
+            // Step 2: Open the configuration file using FileInputStream
+            // Step 3: Load the properties from the file
             properties.load(inputStream);
         } catch (Exception exception) {
-            exception.getMessage();
+            // Step 4: Handle exceptions (e.g., file not found or I/O errors)
+            exception.printStackTrace();
         }
+
+        // Step 5: Return the Properties object
         return properties;
     }
 }
